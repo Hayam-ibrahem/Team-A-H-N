@@ -40,4 +40,32 @@ def register_user(request):
 
     return HttpResponse("User_Added")
 
+def companylogin_validation(request,company_name, company_password):
+
+    try:
+        company = Company.objects.get(company_name=company_name)
+        if company.company_password == company_password:
+            content = {
+                'company_name': company_name
+            }
+            return JsonResponse(content)
+
+    except Exception:
+        return HttpResponse("Company not Found")
+
+    return HttpResponse("Company not Found")
+
+
+def register_company(request):
+    data = json.loads(request.body.decode('utf-8'))
+    User.objects.create(
+        company_name=data['company_name'],
+        company_password=data['company_password'],
+        name=data['name'],
+        location=data['location'],
+        nOfEmployees=data['nOfEmployees'],
+        email=data['email'],
+        company_interests=data['company_interests'])
+
+    return HttpResponse("Company_Added")
 
