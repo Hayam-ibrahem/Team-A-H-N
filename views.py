@@ -24,7 +24,6 @@ def login_validation(request,user_name, user_password):
 
     return HttpResponse("User not Found")
 
-@csrf_exempt
 def register_user(request):
     
     data = json.loads(request.body.decode('utf-8'))
@@ -90,3 +89,14 @@ def userByID(request,user_ID):
         return HttpResponse ("User not found")
 
     return HttpResponse("User not found")
+
+    def companyByID(request,company_ID):
+    try:
+        company = Company.objects.get(pk=company_ID)
+        data = serializer.serialize('json', company)
+        return HttpResponse(data, content_type='application.json')
+
+    except Exception:
+        return HttpResponse ("Company not found")
+
+    return HttpResponse("Company not found")
