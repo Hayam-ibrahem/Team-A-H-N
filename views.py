@@ -90,3 +90,13 @@ def userByID(request,user_ID):
         return HttpResponse ("User not found")
 
     return HttpResponse("User not found")
+def get_companys(request):
+    try:
+        company = Company.objects.all()
+        data = serializer.serialize('json', company)
+        return HttpResponse(data, content_type='application.json')
+
+    except Exception:
+        return HttpResponse ("No companys")
+
+    return HttpResponse("No companys")
