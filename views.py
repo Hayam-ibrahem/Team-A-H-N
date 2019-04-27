@@ -69,3 +69,13 @@ def register_company(request):
 
     return HttpResponse("Company_Added")
 
+def userByID(request,user_ID):
+    try:
+        user = User.objects.get(pk=user_ID)
+        data = serializer.serialize('json', user)
+        return HttpResponse(data, content_type='application.json')
+
+    except Exception:
+        return HttpResponse ("User not found")
+
+    return HttpResponse("User not found")
