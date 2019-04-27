@@ -91,3 +91,14 @@ def get_users(request):
 
     return HttpResponse("No users")
 >>>>>>> 7d44aa29eafdfaea8f1693256c3e550c99f6636d
+
+def userByID(request,user_ID):
+    try:
+        user = User.objects.get(pk=user_ID)
+        data = serializer.serialize('json', user)
+        return HttpResponse(data, content_type='application.json')
+
+    except Exception:
+        return HttpResponse ("User not found")
+
+    return HttpResponse("User not found")

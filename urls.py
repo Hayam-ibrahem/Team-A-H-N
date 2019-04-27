@@ -9,9 +9,10 @@ urlpatterns = [
 <<<<<<< HEAD
     path('register_company', views.register_company, name='register_company')
     path('all_companys', views.get_companys, name='get_companys')
-]
+
 =======
     path('register_company', views.register_company, name='register_company'),
         path('all_users', views.get_users, name='get_users')
+    path('user_info/<user_ID>', views.userByID, name='userByID'),
 ]
 >>>>>>> 7d44aa29eafdfaea8f1693256c3e550c99f6636d
