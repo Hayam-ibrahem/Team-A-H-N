@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+import django.core.serializers as serializer
 from .models import User
 from .models import Company
 
@@ -69,3 +69,13 @@ def register_company(request):
 
     return HttpResponse("Company_Added")
 
+def get_users(request):
+    try:
+        user = User.objects.all()
+        data = serializer.serialize('json', user)
+        return HttpResponse(data, content_type='application.json')
+
+    except Exception:
+        return HttpResponse ("No users")
+
+    return HttpResponse("No users")
