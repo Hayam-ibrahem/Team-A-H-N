@@ -28,14 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 CORS_ORIGIN_ALLOW_ALL=True
 
-JENKINS_TASKS = (
-    'django_jenkins.tasks.run_pep8',
-    'django_jenkins.tasks.run_pyflakes',
-    'django_jenkins.tasks.run_jslint',
-    'django_jenkins.tasks.run_csslint',
-    'django_jenkins.tasks.run_sloccount'
-)
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -131,3 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# JENKINS_TASKS = (
+#     'django_jenkins.tasks.run_pep8',
+#     'django_jenkins.tasks.run_pyflakes',
+#     'django_jenkins.tasks.run_jslint',
+#     'django_jenkins.tasks.run_csslint',
+#     'django_jenkins.tasks.run_sloccount'
+# )
