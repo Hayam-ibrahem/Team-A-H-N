@@ -38,6 +38,18 @@ class UserTestCase(TestCase):
         response_content = response.content.decode('utf-8')
         self.assertEqual(response_content, '{"user_ID": 1}')
 
+        response = self.client.get('/login_validation/TestUser/WrongPassword')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, 200)
+        response_content = response.content.decode('utf-8')
+        self.assertEqual(response_content, 'User not Found')
+
+        response = self.client.get('/login_validation/WrongUser/TestPassword')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, 200)
+        response_content = response.content.decode('utf-8')
+        self.assertEqual(response_content, 'User not Found')
+
 
 class CompanyTestCase(TestCase):
     def setUp(self):
@@ -62,3 +74,22 @@ class CompanyTestCase(TestCase):
         self.assertEqual(company.nOfEmployees, "200")
         self.assertEqual(company.email, "Test@email.com")
         self.assertEqual(company.company_interests, "Interests")
+
+    def test_login_validation(self):
+        response = self.client.get('/companyValidateLogin/TestCompanyName/TestPassword')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, 200)
+        response_content = response.content.decode('utf-8')
+        self.assertEqual(response_content, '{"company_name": "TestCompanyName"}')
+
+        response = self.client.get('/companyValidateLogin/TestCompanyName/WrongPassword')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, 200)
+        response_content = response.content.decode('utf-8')
+        self.assertEqual(response_content, 'Company not Found')
+
+        response = self.client.get('/companyValidateLogin/WrongCompany/TestPassword')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, 200)
+        response_content = response.content.decode('utf-8')
+        self.assertEqual(response_content, 'Company not Found')
