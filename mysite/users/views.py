@@ -15,7 +15,7 @@ def validateLogin(request,user_name, user_password):
         user = User.objects.get(user_name=user_name)
         if user.password == user_password:
             content = {
-                'user_ID': user.user_ID
+                'user_ID': user.pk
             }
             return JsonResponse(content)
 
@@ -46,7 +46,7 @@ def companylogin_validation(request,company_name, company_password):
         company = Company.objects.get(company_name=company_name)
         if company.company_password == company_password:
             content = {
-                'company_name': company_name
+                'company_ID': company.pk
             }
             return JsonResponse(content)
 

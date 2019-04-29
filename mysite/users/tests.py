@@ -80,7 +80,7 @@ class CompanyTestCase(TestCase):
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, 200)
         response_content = response.content.decode('utf-8')
-        self.assertEqual(response_content, '{"company_name": "TestCompanyName"}')
+        self.assertEqual(response_content, '{"company_ID": 1}')
 
         response = self.client.get('/companyValidateLogin/TestCompanyName/WrongPassword')
         self.assertIsNotNone(response)
