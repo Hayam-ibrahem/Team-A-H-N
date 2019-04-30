@@ -9,6 +9,7 @@ import django.core.serializers as serializer
 from .models import User
 from .models import Company
 
+@csrf_exempt
 def validateLogin(request,user_name, user_password):
 
     try:
@@ -40,6 +41,7 @@ def register_user(request):
 
     return HttpResponse("User_Added")
 
+@csrf_exempt
 def companylogin_validation(request,company_name, company_password):
 
     try:
@@ -55,7 +57,7 @@ def companylogin_validation(request,company_name, company_password):
 
     return HttpResponse("Company not Found")
 
-
+@csrf_exempt
 def register_company(request):
     data = json.loads(request.body.decode('utf-8'))
     User.objects.create(
@@ -69,6 +71,7 @@ def register_company(request):
 
     return HttpResponse("Company_Added")
 
+@csrf_exempt
 def get_users(request):
     try:
         user = User.objects.all()
@@ -80,6 +83,7 @@ def get_users(request):
 
     return HttpResponse("No users")
 
+@csrf_exempt
 def get_companys(request):
     try:
         company = Company.objects.all()
@@ -91,6 +95,7 @@ def get_companys(request):
 
     return HttpResponse("No companys")
 
+@csrf_exempt
 def userByID(request,user_ID):
     try:
         user = User.objects.get(pk=user_ID)
@@ -100,7 +105,7 @@ def userByID(request,user_ID):
     except Exception:
         return HttpResponse ("User not found")
 
-
+@csrf_exempt
 def companyByID(request,company_ID):
     try:
         company = Company.objects.get(pk=company_ID)
