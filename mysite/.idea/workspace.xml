@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04bc2000-8028-4925-807d-abe169204f34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,8 +109,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="537" />
-    <option name="y" value="96" />
+    <option name="x" value="536" />
+    <option name="y" value="95" />
     <option name="width" value="1265" />
     <option name="height" value="980" />
   </component>
@@ -268,7 +268,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30015314" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30015314" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.54314005" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

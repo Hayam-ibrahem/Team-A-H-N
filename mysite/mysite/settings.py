@@ -25,7 +25,7 @@ SECRET_KEY = 'tp&gji_pdmos2sbsrf^be3indny)54a)yd0@cwf)-o%%hw*4n_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', '192.168.99.100']
 CORS_ORIGIN_ALLOW_ALL=True
 
 # Application definition
